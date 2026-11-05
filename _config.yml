@@ -3,6 +3,7 @@ description: "1900 年至今：量子力学史与交互式科学档案"
 lang: zh-CN
 url: "https://cyi1995.github.io"
 baseurl: "/quantum-archive"
+theme: jekyll-theme-minimal
 markdown: kramdown
 kramdown:
   input: GFM
