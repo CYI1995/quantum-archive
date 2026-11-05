@@ -77,14 +77,14 @@ r=|\mathbf r|,\qquad
 \kappa=\frac{Ze^2}{4\pi\varepsilon_0}>0,
 $$
 
-其中 \(\mu=m_eM/(m_e+M)\) 是约化质量；普通氢原子取 \(Z=1\)。基本正则对易关系为
+其中 $\mu=m_eM/(m_e+M)$ 是约化质量；普通氢原子取 $Z=1$。基本正则对易关系为
 
 $$
 [r_i,p_j]=i\hbar\delta_{ij},\qquad
 [r_i,r_j]=[p_i,p_j]=0.
 $$
 
-以下推导先求出 **负能量束缚态** \(E<0\) 的能谱。由于氢原子的势能为球对称，轨道角动量
+以下推导先求出 **负能量束缚态** $E<0$ 的能谱。由于氢原子的势能为球对称，轨道角动量
 
 $$
 \mathbf L=\mathbf r\times\mathbf p
