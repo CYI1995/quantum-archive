@@ -22,7 +22,13 @@ permalink: /
  <div class="stage-top"><span>ARCHIVE / 0{{ st.number }}</span><span>↗</span></div><div class="stage-num">0{{ st.number }}</div><p class="stage-date">{{ st.date }}</p><h3>{{ st.name }}</h3><p>{{ st.lead }}</p><div class="stage-end">进入本卷 →</div>
 </a>{% endfor %}</div></section>
 <section class="feature-band"><div class="page-shell"><div class="section-heading"><p class="eyebrow">FEATURED RECORDS</p><h2>从这些重要节点开始</h2></div><div class="feature-grid">
- {% assign featured = 'planck-1900,matrix-1925,schrodinger-1926,bell-1964' | split:',' %}{% for id in featured %}{% for ev in all_events %}{% if ev.slug == id %}
+{% for ev in all_events %}
+  <a class="feature-card" href="{{ ev.url | relative_url }}">
+    <time>{{ ev.year }}</time>
+    <h3>{{ ev.title }}</h3>
+    <p>{{ ev.summary }}</p>
+  </a>
+{% endfor %}
  <a class="feature-card" href="{{ ev.url | relative_url }}"><span class="feature-index">QH / {{ ev.record }}</span><time>{{ ev.year }}</time><h3>{{ ev.title }}</h3><p>{{ ev.summary }}</p><div class="feature-foot"><span>{{ ev.person }}</span><span>↗</span></div></a>{% endif %}{% endfor %}{% endfor %}
 </div></div></section>
 <section class="page-shell timeline-section" id="timeline"><div class="section-heading"><p class="eyebrow">CHRONOLOGICAL REGISTER</p><h2>完整历史时间轴</h2><p>浏览全部 {{ all_events.size }} 个节点，按历史阶段筛选，或输入人物、年份及物理概念。</p></div>
