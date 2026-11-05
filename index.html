@@ -1,40 +1,248 @@
----
-layout: default
-title: 档案总览
-permalink: /
----
-{% assign all_events = site.pages | where:'layout','event' | sort:'order' %}
-<section class="home-hero"><div class="page-shell hero-grid">
-  <div class="hero-copy"><p class="eyebrow">A CENTURY OF QUANTUM DISCOVERY</p><p class="collection-stamp">COLLECTION 001 / 1900—NOW</p>
-    <h1>量子力学的<br><em>百年档案</em></h1>
-    <p class="hero-subtitle">从黑体辐射、物质波到矩阵与波动力学，再到量子信息。沿着历史节点，寻找量子理论如何一步步建立。</p>
-    <div class="hero-actions"><a class="primary-action" href="#timeline">进入历史时间轴 <span>↗</span></a><button class="secondary-action" type="button" data-open-search>⌕ 搜索全部档案</button></div>
-    <div class="hero-metrics"><div><strong>{{ all_events.size }}</strong><span>历史卷宗</span></div><div><strong>04</strong><span>发展阶段</span></div><div><strong>1900+</strong><span>百年跨度</span></div></div>
+
+<!doctype html>
+<html lang="zh-CN" data-theme="archive">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>量子力学百年档案馆 · 31个历史节点</title>
+  <meta name="description" content="量子力学百年历史，31个独立历史事件，四个发展阶段。">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    #eventGrid .feature-card[hidden]{display:none!important}
+    .archive-find{background:var(--panel,#131f27);border:1px solid var(--line,#35434c);color:var(--ink,#f1eadf);padding:10px 14px;width:min(100%,480px);margin:4px 0 14px}
+    .filter-buttons{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}
+    .filter-buttons button{background:var(--panel,#131f27);color:var(--ink,#f1eadf);border:1px solid var(--line,#35434c);padding:8px 13px;cursor:pointer}
+    .filter-buttons button.selected{background:var(--gold,#d7a477);color:#0b1116}
+    .record-count{color:var(--soft,#c3cbd0);margin:0 0 22px}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">ψ</span>
+      <span>
+        <strong>量子力学档案馆</strong>
+        <small>THE QUANTUM ARCHIVE · EST. 1900</small>
+      </span>
+    </a>
+    <nav class="top-nav">
+      <a href="index.html">档案总览</a>
+      <a href="topics.html">主题卷宗</a>
+      <a href="about.html">馆藏说明</a>
+    </nav>
+    <div class="tools">
+      <button type="button" class="icon-tool" id="themeToggle" aria-label="切换配色">◐</button>
+    </div>
   </div>
-  <div class="archive-art home-art"><div class="plate-top"><span>THE QUANTUM ARCHIVE · PLATE 001</span><span>EST. 1900</span></div>
-    <svg viewBox="0 0 620 355" role="img" aria-label="量子波包概念示意"><defs><radialGradient id="vignet"><stop stop-color="#52707b" stop-opacity=".28"/><stop offset="1" stop-color="#152128" stop-opacity=".01"/></radialGradient></defs><rect width="620" height="355" fill="url(#vignet)"/><g stroke="#B2C2BB" stroke-opacity=".13">{% for n in (0..10) %}<line x1="{{ n | times: 53 | plus: 45 }}" x2="{{ n | times: 53 | plus: 45 }}" y1="30" y2="322"/>{% endfor %}{% for n in (0..5) %}<line x1="45" x2="575" y1="{{ n | times: 50 | plus: 45 }}" y2="{{ n | times: 50 | plus: 45 }}"/>{% endfor %}</g>
-      <path d="M45 184 C100 184 109 183 132 174 S165 213 192 233 S225 90 256 105 S291 271 316 270 S350 100 380 93 S421 234 453 210 S506 175 575 184" stroke="#D7A477" stroke-width="3" fill="none"/><path d="M45 184 C100 184 109 183 132 174 S165 213 192 233 S225 90 256 105 S291 271 316 270 S350 100 380 93 S421 234 453 210 S506 175 575 184" stroke="#D7A477" stroke-opacity=".12" stroke-width="13" fill="none"/>
-      <line x1="45" x2="575" y1="184" y2="184" stroke="#C2C9C9" stroke-opacity=".35" stroke-dasharray="3 7"/><text x="52" y="325" fill="#9EA7A4" font-size="11" font-family="monospace" letter-spacing="2">WAVE PACKET · SCHEMATIC</text>
-    </svg><div class="plate-bottom"><span>Q / H — CATALOGUE DRAWING</span><span>1900–PRESENT</span></div></div>
-</div></section>
-<section class="page-shell index-section" id="stages"><div class="section-heading"><p class="eyebrow">FOUR CHAPTERS</p><h2>四卷历史，贯穿百年。</h2><p>每一阶段都由具体的科学问题推动：现象、理论、扩展、技术。</p></div>
-<div class="stage-grid">{% for st in site.data.stages %}<a href="{{ st.slug | prepend:'/stages/' | append:'.html' | relative_url }}" class="stage-card" style="--accent:{{ st.color }}">
- <div class="stage-top"><span>ARCHIVE / 0{{ st.number }}</span><span>↗</span></div><div class="stage-num">0{{ st.number }}</div><p class="stage-date">{{ st.date }}</p><h3>{{ st.name }}</h3><p>{{ st.lead }}</p><div class="stage-end">进入本卷 →</div>
-</a>{% endfor %}</div></section>
-<section class="feature-band"><div class="page-shell"><div class="section-heading"><p class="eyebrow">FEATURED RECORDS</p><h2>从这些重要节点开始</h2></div><div class="feature-grid">
-{% for ev in all_events %}
-  <a class="feature-card" href="{{ ev.url | relative_url }}">
-    <time>{{ ev.year }}</time>
-    <h3>{{ ev.title }}</h3>
-    <p>{{ ev.summary }}</p>
-  </a>
-{% endfor %}
- <a class="feature-card" href="{{ ev.url | relative_url }}"><span class="feature-index">QH / {{ ev.record }}</span><time>{{ ev.year }}</time><h3>{{ ev.title }}</h3><p>{{ ev.summary }}</p><div class="feature-foot"><span>{{ ev.person }}</span><span>↗</span></div></a>{% endif %}{% endfor %}{% endfor %}
-</div></div></section>
-<section class="page-shell timeline-section" id="timeline"><div class="section-heading"><p class="eyebrow">CHRONOLOGICAL REGISTER</p><h2>完整历史时间轴</h2><p>浏览全部 {{ all_events.size }} 个节点，按历史阶段筛选，或输入人物、年份及物理概念。</p></div>
-<div class="timeline-tools"><div class="filters"><button class="selected" type="button" data-stage-filter="all" aria-pressed="true">全部节点</button>{% for st in site.data.stages %}<button type="button" data-stage-filter="{{ st.number }}">0{{ st.number }} · {{ st.tag }}</button>{% endfor %}</div><label class="timeline-search">⌕ <input id="timelineSearch" placeholder="筛选时间轴…" aria-label="筛选时间轴"></label></div>
-{% for st in site.data.stages %}<div class="timeline-group" data-stage="{{ st.number }}" style="--accent:{{ st.color }}">
-  <div class="timeline-group-head"><span>0{{ st.number }}</span><div><small>{{ st.date }}</small><h3>{{ st.name }}</h3></div><a href="{{ st.slug | prepend: '/stages/' | append: '.html' | relative_url }}">查看阶段 ↗</a></div><div class="timeline-list">
-  {% for ev in all_events %}{% if ev.stage == st.number %}<a class="timeline-row" href="{{ ev.url | relative_url }}"><time>{{ ev.year }}</time><span class="timeline-main"><strong>{{ ev.title }}</strong><small>{{ ev.summary }}</small></span><span class="timeline-person">{{ ev.person }}</span><span class="arrow">↗</span></a>{% endif %}{% endfor %}</div></div>{% endfor %}
-<p id="timelineEmpty" class="no-results" hidden>没有匹配的历史节点，请尝试其他关键词。</p></section>
-<section class="page-shell end-banner"><div><p class="eyebrow">EXPLORE FURTHER</p><h2>理解科学，也理解科学如何发生。</h2><p>每篇文章都可持续扩充实验、原始文献与公式，并在 GitHub 上留存修改历史。</p></div><a class="primary-action" href="{{ '/events/planck-1900.html' | relative_url }}">从 1900 年开始 ↗</a></section>
+</header>
+
+<main>
+<section class="home-hero">
+  <div class="page-shell hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">A CENTURY OF QUANTUM DISCOVERY</p>
+      <p class="collection-stamp">COLLECTION 001 / 1900—NOW</p>
+      <h1>量子力学的<br><em>百年档案</em></h1>
+      <p class="hero-subtitle">
+        从黑体辐射、物质波，到矩阵力学、量子测量和量子信息。
+        通过31个历史节点，探索量子理论的发展。
+      </p>
+      <div class="hero-actions">
+        <a class="primary-action" href="#events">查看全部历史节点 ↗</a>
+      </div>
+      <div class="hero-metrics">
+        <div><strong>31</strong><span>历史卷宗</span></div>
+        <div><strong>04</strong><span>发展阶段</span></div>
+        <div><strong>1900+</strong><span>百年跨度</span></div>
+      </div>
+    </div>
+    <div class="archive-art home-art">
+      <div class="plate-top">
+        <span>THE QUANTUM ARCHIVE · PLATE 001</span>
+        <span>EST. 1900</span>
+      </div>
+      <svg viewBox="0 0 620 355" role="img" aria-label="量子波包示意">
+        <rect width="620" height="355" fill="#152128"/>
+        <path d="M45 184 C100 184 109 183 132 174 S165 213 192 233 S225 90 256 105 S291 271 316 270 S350 100 380 93 S421 234 453 210 S506 175 575 184" stroke="#D7A477" stroke-width="3" fill="none"/>
+        <line x1="45" x2="575" y1="184" y2="184" stroke="#C2C9C9" stroke-dasharray="3 7"/>
+        <text x="52" y="325" fill="#9EA7A4" font-family="monospace" font-size="11">WAVE PACKET · SCHEMATIC</text>
+      </svg>
+      <div class="plate-bottom">
+        <span>Q / H · CATALOGUE DRAWING</span>
+        <span>1900—PRESENT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-shell index-section">
+  <div class="section-heading">
+    <p class="eyebrow">FOUR CHAPTERS</p>
+    <h2>四卷历史，贯穿百年</h2>
+    <p>经典物理的挑战、数学形式体系、相对论与多体物理、量子信息技术。</p>
+  </div>
+  <div class="stage-grid">
+    <a class="stage-card" style="--accent:#D7A477" href="stages/early-quantum.html">
+      <span class="stage-num">01</span>
+      <h3>旧量子论与早期实验</h3>
+      <p>1900–1924</p>
+      <div class="stage-end">进入本卷 →</div>
+    </a>
+    <a class="stage-card" style="--accent:#A6B7D5" href="stages/formalism.html">
+      <span class="stage-num">02</span>
+      <h3>量子力学形式体系</h3>
+      <p>1925–1927</p>
+      <div class="stage-end">进入本卷 →</div>
+    </a>
+    <a class="stage-card" style="--accent:#8EBDAE" href="stages/relativity-manybody.html">
+      <span class="stage-num">03</span>
+      <h3>相对论与多体物理</h3>
+      <p>1928–1950s</p>
+      <div class="stage-end">进入本卷 →</div>
+    </a>
+    <a class="stage-card" style="--accent:#C3A6CD" href="stages/foundations-technology.html">
+      <span class="stage-num">04</span>
+      <h3>量子基础与技术</h3>
+      <p>1960s–今天</p>
+      <div class="stage-end">进入本卷 →</div>
+    </a>
+  </div>
+</section>
+
+<section id="events" class="feature-band">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="eyebrow">COMPLETE ARCHIVE</p>
+      <h2>全部31个历史节点</h2>
+      <p>每个节点链接到独立 Markdown 文章，可以按阶段筛选、按关键词搜索。</p>
+    </div>
+
+    <div class="filter-buttons">
+      <button class="selected" data-stage="0">全部</button>
+      <button data-stage="1">第一阶段</button>
+      <button data-stage="2">第二阶段</button>
+      <button data-stage="3">第三阶段</button>
+      <button data-stage="4">第四阶段</button>
+    </div>
+
+    <input id="search" class="archive-find" type="search"
+      placeholder="搜索：1926、薛定谔、光电效应…"
+      aria-label="搜索历史节点">
+
+    <p id="counter" class="record-count">全部31个节点</p>
+    <div class="feature-grid" id="eventGrid"></div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="foot-main">
+    <div>
+      <a class="foot-brand" href="index.html">ψ　量子力学档案馆</a>
+      <p>科学史阅读 · 教学资料 · 开放编辑</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const events = [
+  ["1900","planck-1900","能量量子化","马克斯·普朗克",1,"为解释黑体辐射，引入能量以离散单元交换的假设。"],
+  ["1905","einstein-1905","光量子与光电效应","阿尔伯特·爱因斯坦",1,"把光的能量与频率联系起来，用光量子假说解释光电效应。"],
+  ["1911","rutherford-1911","原子核式模型","欧内斯特·卢瑟福",1,"将原子描述为具有很小而致密的原子核和核外电子的体系。"],
+  ["1913","bohr-1913","定态与能级跃迁","尼尔斯·玻尔",1,"用分立能级和跃迁解释氢原子的线状光谱。"],
+  ["1914","franck-hertz-1914","弗兰克–赫兹实验","詹姆斯·弗兰克、古斯塔夫·赫兹",1,"用电子碰撞揭示原子的离散激发能。"],
+  ["1923","compton-1923","康普顿效应","阿瑟·康普顿",1,"X 射线散射中出现可预测的波长变化，体现光子的动量。"],
+  ["1924","debroglie-1924","物质波假说","路易·德布罗意",1,"把波粒二象性推广到电子等实物粒子。"],
+  ["1925","matrix-1925","矩阵力学","维尔纳·海森堡、马克斯·玻恩、帕斯库尔·约当",2,"以可观测的跃迁振幅为基础建立量子力学数学形式。"],
+  ["1925","pauli-1925","泡利不相容原理","沃尔夫冈·泡利",2,"解释原子壳层结构中电子占据状态的限制。"],
+  ["1926","schrodinger-1926","波动力学与薛定谔方程","埃尔温·薛定谔",2,"用波函数和演化方程描述量子态。"],
+  ["1926","born-1926","波函数的概率诠释","马克斯·玻恩",2,"把波函数模平方与测量结果的概率联系起来。"],
+  ["1927","uncertainty-1927","不确定性原理","维尔纳·海森堡",2,"定量描述某些观测量的统计涨落不能同时任意小。"],
+  ["1927","copenhagen-1927","测量与哥本哈根诠释","尼尔斯·玻尔、维尔纳·海森堡等",2,"围绕互补性、测量和量子理论的物理含义形成重要诠释传统。"],
+  ["1927","diffraction-1927","电子衍射验证物质波","戴维孙、革末；G. P. 汤姆孙等",2,"观察电子经过晶体或薄膜时产生的衍射结构。"],
+  ["1928","dirac-1928","狄拉克方程","保罗·狄拉克",3,"建立描述电子的相对论性波动方程。"],
+  ["1932","positron-1932","正电子的发现","卡尔·安德森",3,"在宇宙线研究中发现带正电的电子对应粒子。"],
+  ["1947","lamb-1947","兰姆位移","威利斯·兰姆、罗伯特·雷瑟福等",3,"测出氢原子精细结构中超出原有狄拉克理论的能级差。"],
+  ["1948","qed-1948","量子电动力学的建立","费曼、施温格、朝永振一郎等",3,"发展可系统计算电子与光子相互作用的量子场论。"],
+  ["1957","bcs-1957","BCS 超导理论","巴丁、库珀、施里弗",3,"借助库珀对与多体基态解释常规超导。"],
+  ["1964","bell-1964","贝尔不等式","约翰·贝尔",4,"把局域隐变量模型的某些假设转化为可检验的不等式。"],
+  ["1972","clauser-1972","早期贝尔不等式实验","约翰·克劳泽、斯图尔特·弗里德曼",4,"用偏振相关的光子对测量贝尔型关联。"],
+  ["1980","quantum-computer-1980","量子计算模型的萌芽","保罗·贝尼奥夫等",4,"探索使用量子物理体系表述计算过程。"],
+  ["1980","quantum-hall-1980","整数量子霍尔效应","克劳斯·冯·克利青等",4,"发现二维电子体系的霍尔电阻具有高度精确的量子化平台。"],
+  ["1981","feynman-1981","量子模拟的思想","理查德·费曼等",4,"提出由可控量子系统高效模拟其他量子系统的构想。"],
+  ["1981","stm-1981","扫描隧道显微镜","格尔德·宾尼希、海因里希·罗雷尔等",4,"利用量子隧穿电流探测表面结构。"],
+  ["1982","aspect-1982","阿斯佩的贝尔实验","阿兰·阿斯佩及合作者",4,"用纠缠光子对改进贝尔不等式检验。"],
+  ["1984","bb84-1984","量子密钥分发协议","查尔斯·贝内特、吉尔斯·布拉萨",4,"提出利用非正交量子态传递密钥信息的 BB84 协议。"],
+  ["1994","shor-1994","Shor 量子算法","彼得·肖尔",4,"提出在理想量子计算机上高效解决整数分解问题的算法。"],
+  ["1995","bec-1995","玻色–爱因斯坦凝聚的实现","埃里克·康奈尔、卡尔·维曼、沃尔夫冈·克特勒等",4,"在稀薄原子气体中制备玻色–爱因斯坦凝聚态。"],
+  ["1995","qec-1995","量子纠错理论","彼得·肖尔等",4,"建立利用编码与综合征测量保护量子信息的基本思想。"],
+  ["2000 年代至今","platforms-2000s","量子技术平台的持续发展","多学科研究团队",4,"量子比特、量子模拟与量子通信在不同硬件平台上持续推进。"]
+];
+
+const grid = document.getElementById('eventGrid');
+const input = document.getElementById('search');
+const counter = document.getElementById('counter');
+let selectedStage = 0;
+
+function draw() {
+  const q = input.value.trim().toLocaleLowerCase();
+  grid.replaceChildren();
+  let shown = 0;
+
+  events.forEach(([year, slug, title, person, stage, summary], i) => {
+    if (selectedStage && stage !== selectedStage) return;
+    if (q && ![year,title,person,summary].join(' ').toLocaleLowerCase().includes(q)) return;
+
+    const a = document.createElement('a');
+    a.className = 'feature-card';
+    a.href = 'events/' + slug + '.html';
+
+    const index = document.createElement('span');
+    index.className = 'feature-index';
+    index.textContent = 'QH / ' + String(i + 1).padStart(2,'0');
+
+    const time = document.createElement('time');
+    time.textContent = year;
+
+    const heading = document.createElement('h3');
+    heading.textContent = title;
+
+    const desc = document.createElement('p');
+    desc.textContent = summary;
+
+    const foot = document.createElement('div');
+    foot.className = 'feature-foot';
+    foot.textContent = person + ' ↗';
+
+    a.append(index,time,heading,desc,foot);
+    grid.append(a);
+    shown++;
+  });
+
+  counter.textContent = '当前显示 ' + shown + ' / 31 个历史节点';
+}
+
+document.querySelectorAll('[data-stage]').forEach(button => {
+  button.addEventListener('click', () => {
+    selectedStage = Number(button.dataset.stage);
+    document.querySelectorAll('[data-stage]').forEach(b => {
+      b.classList.toggle('selected', b === button);
+    });
+    draw();
+  });
+});
+
+input.addEventListener('input',draw);
+
+const toggle = document.getElementById('themeToggle');
+toggle.addEventListener('click',()=>{
+  document.documentElement.dataset.theme =
+    document.documentElement.dataset.theme === 'paper'
+      ? 'archive' : 'paper';
+});
+
+draw();
+</script>
+</body>
+</html>
