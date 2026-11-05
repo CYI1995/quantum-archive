@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<div class="page-shell event-shell" style="--accent:#D7A477">
+  <nav class="crumbs" aria-label="面包屑">
+    <a href="{{ '/' | relative_url }}">档案总览</a><span>/</span>
+    <a href="{{ '/origins/' | relative_url }}">量子问题的诞生</a><span>/</span>
+    <span>{{ page.year }}</span>
+  </nav>
+  <section class="event-hero" style="display:block">
+    <div class="event-hero-copy">
+      <p class="eyebrow">SPECIAL COLLECTION · THE BIRTH OF QUANTUM QUESTIONS</p>
+      <p class="event-stage">独立史学专题 · 第 {{ page.chapter }} / {{ page.chapter_count }} 页</p>
+      <div class="event-year">{{ page.year }}</div>
+      <h1>{{ page.title }}</h1>
+      <p class="event-subtitle">{{ page.summary }}</p>
+      <div class="event-meta"><span>相关人物：{{ page.person }}</span><span>本页焦点：{{ page.question }}</span></div>
+    </div>
+  </section>
+  <div class="article-layout">
+    <aside class="article-sidebar"><div class="sidebar-inner"><p class="sidebar-title">CONTENTS / 本页目录</p><nav class="article-toc" id="desktopToc" aria-label="文章目录"></nav><div class="sidebar-divider"></div><p><a href="{{ '/origins/' | relative_url }}">← 返回专题目录</a></p></div></aside>
+    <div class="article-column">
+      <details class="mobile-toc"><summary>本页目录 · CONTENTS</summary><nav id="mobileToc" aria-label="移动文章目录"></nav></details>
+      <article class="markdown-prose" id="articleContent">
+        <blockquote><p><strong>本页核心问题：</strong>{{ page.question }}</p></blockquote>
+        {{ content }}
+      </article>
+      <div class="article-endnote">本专题将实验事实、当事人的解释和现代回顾性计算明确区分。</div>
+    </div>
+  </div>
+  <section class="event-next"><p class="eyebrow">READ ON / 前后篇章</p><div class="neighbor-cards">
+    {% if page.previous %}<a href="{{ page.previous | relative_url }}"><small>← 上一篇</small><strong>{{ page.previous_title }}</strong></a>{% endif %}
+    <a href="{{ '/origins/' | relative_url }}"><small>专题索引</small><strong>浏览全部篇章</strong></a>
+    {% if page.next %}<a href="{{ page.next | relative_url }}"><small>下一篇 →</small><strong>{{ page.next_title }}</strong></a>{% endif %}
+  </div></section>
+</div>
