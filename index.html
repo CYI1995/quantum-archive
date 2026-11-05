@@ -1,0 +1,40 @@
+---
+layout: default
+title: 档案总览
+permalink: /
+---
+{% assign all_events = site.pages | where:'layout','event' | sort:'order' %}
+<section class="home-hero"><div class="page-shell hero-grid">
+  <div class="hero-copy"><p class="eyebrow">A CENTURY OF QUANTUM DISCOVERY</p><p class="collection-stamp">COLLECTION 001 / 1900—NOW</p>
+    <h1>量子力学的<br><em>百年档案</em></h1>
+    <p class="hero-subtitle">从黑体辐射、物质波到矩阵与波动力学，再到量子信息。沿着历史节点，寻找量子理论如何一步步建立。</p>
+    <div class="hero-actions"><a class="primary-action" href="#timeline">进入历史时间轴 <span>↗</span></a><button class="secondary-action" type="button" data-open-search>⌕ 搜索全部档案</button></div>
+    <div class="hero-metrics"><div><strong>{{ all_events.size }}</strong><span>历史卷宗</span></div><div><strong>04</strong><span>发展阶段</span></div><div><strong>1900+</strong><span>百年跨度</span></div></div>
+  </div>
+  <div class="archive-art home-art"><div class="plate-top"><span>THE QUANTUM ARCHIVE · PLATE 001</span><span>EST. 1900</span></div>
+    <svg viewBox="0 0 620 355" role="img" aria-label="量子波包概念示意"><defs><radialGradient id="vignet"><stop stop-color="#52707b" stop-opacity=".28"/><stop offset="1" stop-color="#152128" stop-opacity=".01"/></radialGradient></defs><rect width="620" height="355" fill="url(#vignet)"/><g stroke="#B2C2BB" stroke-opacity=".13">{% for n in (0..10) %}<line x1="{{ n | times: 53 | plus: 45 }}" x2="{{ n | times: 53 | plus: 45 }}" y1="30" y2="322"/>{% endfor %}{% for n in (0..5) %}<line x1="45" x2="575" y1="{{ n | times: 50 | plus: 45 }}" y2="{{ n | times: 50 | plus: 45 }}"/>{% endfor %}</g>
+      <path d="M45 184 C100 184 109 183 132 174 S165 213 192 233 S225 90 256 105 S291 271 316 270 S350 100 380 93 S421 234 453 210 S506 175 575 184" stroke="#D7A477" stroke-width="3" fill="none"/><path d="M45 184 C100 184 109 183 132 174 S165 213 192 233 S225 90 256 105 S291 271 316 270 S350 100 380 93 S421 234 453 210 S506 175 575 184" stroke="#D7A477" stroke-opacity=".12" stroke-width="13" fill="none"/>
+      <line x1="45" x2="575" y1="184" y2="184" stroke="#C2C9C9" stroke-opacity=".35" stroke-dasharray="3 7"/><text x="52" y="325" fill="#9EA7A4" font-size="11" font-family="monospace" letter-spacing="2">WAVE PACKET · SCHEMATIC</text>
+    </svg><div class="plate-bottom"><span>Q / H — CATALOGUE DRAWING</span><span>1900–PRESENT</span></div></div>
+</div></section>
+<section class="page-shell index-section" id="stages"><div class="section-heading"><p class="eyebrow">FOUR CHAPTERS</p><h2>四卷历史，贯穿百年。</h2><p>每一阶段都由具体的科学问题推动：现象、理论、扩展、技术。</p></div>
+<div class="stage-grid">{% for st in site.data.stages %}<a href="{{ st.slug | prepend:'/stages/' | append:'.html' | relative_url }}" class="stage-card" style="--accent:{{ st.color }}">
+ <div class="stage-top"><span>ARCHIVE / 0{{ st.number }}</span><span>↗</span></div><div class="stage-num">0{{ st.number }}</div><p class="stage-date">{{ st.date }}</p><h3>{{ st.name }}</h3><p>{{ st.lead }}</p><div class="stage-end">进入本卷 →</div>
+</a>{% endfor %}</div></section>
+<section class="feature-band"><div class="page-shell"><div class="section-heading"><p class="eyebrow">FEATURED RECORDS</p><h2>从这些重要节点开始</h2></div><div class="feature-grid">
+{% for ev in all_events %}
+  <a class="feature-card" href="{{ ev.url | relative_url }}">
+    <time>{{ ev.year }}</time>
+    <h3>{{ ev.title }}</h3>
+    <p>{{ ev.summary }}</p>
+  </a>
+{% endfor %}
+ <a class="feature-card" href="{{ ev.url | relative_url }}"><span class="feature-index">QH / {{ ev.record }}</span><time>{{ ev.year }}</time><h3>{{ ev.title }}</h3><p>{{ ev.summary }}</p><div class="feature-foot"><span>{{ ev.person }}</span><span>↗</span></div></a>{% endif %}{% endfor %}{% endfor %}
+</div></div></section>
+<section class="page-shell timeline-section" id="timeline"><div class="section-heading"><p class="eyebrow">CHRONOLOGICAL REGISTER</p><h2>完整历史时间轴</h2><p>浏览全部 {{ all_events.size }} 个节点，按历史阶段筛选，或输入人物、年份及物理概念。</p></div>
+<div class="timeline-tools"><div class="filters"><button class="selected" type="button" data-stage-filter="all" aria-pressed="true">全部节点</button>{% for st in site.data.stages %}<button type="button" data-stage-filter="{{ st.number }}">0{{ st.number }} · {{ st.tag }}</button>{% endfor %}</div><label class="timeline-search">⌕ <input id="timelineSearch" placeholder="筛选时间轴…" aria-label="筛选时间轴"></label></div>
+{% for st in site.data.stages %}<div class="timeline-group" data-stage="{{ st.number }}" style="--accent:{{ st.color }}">
+  <div class="timeline-group-head"><span>0{{ st.number }}</span><div><small>{{ st.date }}</small><h3>{{ st.name }}</h3></div><a href="{{ st.slug | prepend: '/stages/' | append: '.html' | relative_url }}">查看阶段 ↗</a></div><div class="timeline-list">
+  {% for ev in all_events %}{% if ev.stage == st.number %}<a class="timeline-row" href="{{ ev.url | relative_url }}"><time>{{ ev.year }}</time><span class="timeline-main"><strong>{{ ev.title }}</strong><small>{{ ev.summary }}</small></span><span class="timeline-person">{{ ev.person }}</span><span class="arrow">↗</span></a>{% endif %}{% endfor %}</div></div>{% endfor %}
+<p id="timelineEmpty" class="no-results" hidden>没有匹配的历史节点，请尝试其他关键词。</p></section>
+<section class="page-shell end-banner"><div><p class="eyebrow">EXPLORE FURTHER</p><h2>理解科学，也理解科学如何发生。</h2><p>每篇文章都可持续扩充实验、原始文献与公式，并在 GitHub 上留存修改历史。</p></div><a class="primary-action" href="{{ '/events/planck-1900.html' | relative_url }}">从 1900 年开始 ↗</a></section>

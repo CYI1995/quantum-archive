@@ -1,0 +1,8 @@
+---
+layout: null
+permalink: /search-index.json
+---
+{% assign all_events = site.pages | where:'layout','event' | sort:'order' %}
+[
+{% for ev in all_events %}{"title":{{ ev.title | jsonify }},"year":{{ ev.year | jsonify }},"person":{{ ev.person | jsonify }},"summary":{{ ev.summary | jsonify }},"keyword":{{ ev.keyword | jsonify }},"body":{{ ev.content | markdownify | strip_html | normalize_whitespace | jsonify }},"url":{{ ev.url | relative_url | jsonify }}}{% unless forloop.last %},{% endunless %}
+{% endfor %}]

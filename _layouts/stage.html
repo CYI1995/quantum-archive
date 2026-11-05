@@ -1,0 +1,19 @@
+---
+layout: default
+---
+{% assign stage_idx = page.stage_no | minus: 1 %}
+{% assign st = site.data.stages[stage_idx] %}
+{% assign all_events = site.pages | where: 'layout','event' | sort:'order' %}
+<section class="page-shell stage-page" style="--accent:{{ st.color }}">
+ <div class="crumbs"><a href="{{ '/' | relative_url }}">档案总览</a><span>/</span><span>阶段 {{ page.stage_no }}</span></div>
+ <p class="eyebrow">COLLECTION / {{ page.stage_no }} &nbsp;·&nbsp; {{ st.date }}</p>
+ <h1 class="stage-title">{{ st.name }}</h1><p class="stage-description">{{ st.lead }}</p>
+ <div class="stage-register"><div><span class="tiny-label">CHAPTER</span><strong>0{{ page.stage_no }}</strong></div><div><span class="tiny-label">HISTORICAL PERIOD</span><strong>{{ st.date }}</strong></div></div>
+ <div class="section-divider"><span>历史事件目录</span><span>CATALOGUE INDEX</span></div>
+ <div class="timeline-list stage-list">
+ {% for ev in all_events %}{% if ev.stage == page.stage_no %}
+ <a class="timeline-row" href="{{ ev.url | relative_url }}"><time>{{ ev.year }}</time><span class="timeline-main"><strong>{{ ev.title }}</strong><small>{{ ev.summary }}</small></span><span class="timeline-person">{{ ev.person }}</span><span class="arrow">↗</span></a>
+ {% endif %}{% endfor %}
+ </div>
+ <div class="backbar"><a href="{{ '/' | relative_url }}#timeline">← 返回完整时间轴</a></div>
+</section>
