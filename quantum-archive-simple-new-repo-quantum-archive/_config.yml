@@ -1,0 +1,17 @@
+title: "量子力学档案馆"
+description: "1900 年至今：量子力学史与交互式科学档案"
+lang: zh-CN
+url: "https://cyi1995.github.io"
+baseurl: "/quantum-archive"
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+exclude:
+  - README.md
+  - START_HERE.md
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - source-notes
