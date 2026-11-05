@@ -1,9 +1,0 @@
----
-layout: default
-title: 主题卷宗
-permalink: /topics.html
----
-{% assign all_events = site.pages | where:'layout','event' | sort:'order' %}
-<section class="page-shell generic-page"><p class="eyebrow">SUBJECT REGISTER / 档案索引</p><h1>主题卷宗</h1><p class="generic-lead">按照物理概念而非年份浏览历史事件。点击任一节点，阅读完整文章与实验材料。</p>
-<div class="topic-groups">{% for st in site.data.stages %}<section class="topic-group" style="--accent:{{ st.color }}"><div class="topic-group-head"><span>0{{ st.number }}</span><div><h2>{{ st.name }}</h2><p>{{ st.lead }}</p></div></div><div class="topic-links">
-{% for ev in all_events %}{% if ev.stage == st.number %}<a href="{{ ev.url | relative_url }}"><span>{{ ev.keyword }}</span><strong>{{ ev.title }}</strong><small>{{ ev.year }} · {{ ev.person }}</small><span class="arrow">↗</span></a>{% endif %}{% endfor %}</div></section>{% endfor %}</div></section>
