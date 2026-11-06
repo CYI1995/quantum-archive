@@ -1,17 +1,17 @@
 ---
 layout: event
-title: "狄拉克《量子力学原理》：量子理论的统一语言"
-year: "1930"
-person: "保罗·狄拉克"
-summary: "狄拉克如何统一量子力学的数学形式。"
-keyword: "叠加原理、态矢量、表象变换、量子测量"
+title: 狄拉克《量子力学原理》：量子理论的统一语言
+year: '1930'
+person: 保罗·狄拉克
+summary: 从叠加原理、态矢量与变换理论出发，理解量子力学数学形式的统一。
+keyword: 叠加原理、态矢量、表象变换、量子测量
 stage: 2
-record: "8.9"
-image: "/assets/images/dirac-principles.svg"
-image_alt: "狄拉克量子力学形式体系示意图"
-permalink: "/events/dirac-principles-1930.html"
+record: '8.9'
+lab: ''
+image: /assets/images/dirac-principles.svg
+image_alt: 狄拉克量子力学形式体系示意图
+permalink: /events/dirac-principles-1930.html
 ---
-
 
 > **量子力学形式体系 · 理论总结（1930）**　｜　[上一篇：矩阵力学、波动力学与变换理论]({{ '/events/matrix-1925/08-afterward.html' | relative_url }})　｜　[返回档案总览]({{ '/' | relative_url }})
 
