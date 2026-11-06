@@ -15,7 +15,15 @@ layout: default
       <div class="event-meta"><span>相关人物：{{ page.person }}</span><span>主题：{{ page.keyword }}</span></div>
     </div>
     <div class="archive-art" aria-label="波形档案示意图">
-      <div class="plate-top"><span>ARCHIVE SCHEMATIC / {{ page.record }}</span><span>CONCEPTUAL</span></div>
+      <div class="plate-top">
+{% if page.image %}
+  <img
+    src="{{ page.image | relative_url }}"
+    alt="{{ page.image_alt | default: page.title | escape }}"
+    class="event-cover"
+    loading="eager">
+{% else %}
+      <span>ARCHIVE SCHEMATIC / {{ page.record }}</span><span>CONCEPTUAL</span></div>
       <svg viewBox="0 0 620 355" role="img" aria-label="量子波形示意">
         <defs><linearGradient id="glow" x1="0" x2="1"><stop stop-color="{{ st.color }}" stop-opacity=".02"/><stop offset=".52" stop-color="{{ st.color }}" stop-opacity=".17"/><stop offset="1" stop-color="{{ st.color }}" stop-opacity=".02"/></linearGradient></defs>
         <rect x="0" y="0" width="620" height="355" fill="url(#glow)"/>
@@ -27,6 +35,8 @@ layout: default
         <path stroke="{{ st.color }}" stroke-opacity=".26" stroke-width="11" fill="none" d="M35 175 C80 175 89 175 115 175 C142 175 147 135 172 133 S211 244 236 238 S263 91 290 91 S325 262 353 262 S386 126 412 131 S451 197 477 195 S526 176 585 175"/>
         <line x1="35" y1="175" x2="585" y2="175" stroke="#A9B6BC" stroke-opacity=".25" stroke-dasharray="4 8"/>
       </svg>
+      <!-- 保留原来的 SVG 波形图代码 -->
+{% endif %}
       <div class="plate-bottom"><span>FIG. {{ page.record }} · WAVE / OPERATOR</span><span>NOT TO SCALE</span></div>
     </div>
   </section>
