@@ -59,7 +59,7 @@ $$
 =\mathbf p\times\mathbf L-\mu\kappa\frac{\mathbf r}{r}.
 $$
 
-在量子力学中，\(\mathbf p\) 与 \(\mathbf L\) 不交换，必须注意算符排序。一个厄米的量子版本是
+在量子力学中，$\mathbf p$ 与 $\mathbf L$ 不交换，必须注意算符排序。一个厄米的量子版本是
 
 $$
 \boxed{
