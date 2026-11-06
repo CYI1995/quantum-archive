@@ -30,111 +30,111 @@ permalink: "/events/dirac-principles-1930.html"
 用现代数学语言，一个封闭量子系统的纯态由复希尔伯特空间 $\mathcal H$ 中的非零向量表示。设内积对第二个变量线性，对第一个变量共轭线性，则
 
 $$
-\langle\phi|\alpha\psi+\beta\chi\rangle
-=\alpha\langle\phi|\psi\rangle
-+\beta\langle\phi|\chi\rangle,
+\langle\phi\mid \alpha\psi+\beta\chi\rangle
+=\alpha\langle\phi\mid \psi\rangle
++\beta\langle\phi\mid \chi\rangle,
 \qquad
-\langle\psi|\phi\rangle
-=\langle\phi|\psi\rangle^*.
+\langle\psi\mid \phi\rangle
+=\langle\phi\mid \psi\rangle^*.
 $$
 
-叠加原理的数学内容是：如果 $|\psi_1\rangle,|\psi_2\rangle\in\mathcal H$，那么任意复线性组合
+叠加原理的数学内容是：如果 $\lvert \psi_1\rangle,\lvert \psi_2\rangle\in\mathcal H$，那么任意复线性组合
 
 $$
-|\widetilde\psi\rangle
-=\alpha|\psi_1\rangle+\beta|\psi_2\rangle
+\lvert \widetilde\psi\rangle
+=\alpha\lvert \psi_1\rangle+\beta\lvert \psi_2\rangle
 $$
 
-仍属于同一向量空间；只要 $|\widetilde\psi\rangle\ne0$，便可归一化为
+仍属于同一向量空间；只要 $\lvert \widetilde\psi\rangle\ne0$，便可归一化为
 
 $$
-|\psi\rangle
-=\frac{|\widetilde\psi\rangle}
-{\sqrt{\langle\widetilde\psi|\widetilde\psi\rangle}}.
+\lvert \psi\rangle
+=\frac{\lvert \widetilde\psi\rangle}
+{\sqrt{\langle\widetilde\psi\mid \widetilde\psi\rangle}}.
 $$
 
-要注意：若 $|\psi_1\rangle$ 与 $|\psi_2\rangle$ 不正交，则一般**不能**直接要求 $|\alpha|^2+|\beta|^2=1$，因为交叉项会影响范数：
+要注意：若 $\lvert \psi_1\rangle$ 与 $\lvert \psi_2\rangle$ 不正交，则一般**不能**直接要求 $\lvert \alpha\rvert^2+\lvert \beta\rvert^2=1$，因为交叉项会影响范数：
 
 $$
 \begin{aligned}
-\|\alpha\psi_1+\beta\psi_2\|^2
-={}&|\alpha|^2\|\psi_1\|^2
-+|\beta|^2\|\psi_2\|^2\\
+\lVert \alpha\psi_1+\beta\psi_2\rVert^2
+={}&\lvert \alpha\rvert^2\lVert \psi_1\rVert^2
++\lvert \beta\rvert^2\lVert \psi_2\rVert^2\\
 &+2\operatorname{Re}\!\left(
-\alpha^*\beta\langle\psi_1|\psi_2\rangle
+\alpha^*\beta\langle\psi_1\mid \psi_2\rangle
 \right).
 \end{aligned}
 $$
 
-只有当两态正交且均已归一化时，上式才化为 $|\alpha|^2+|\beta|^2$。
+只有当两态正交且均已归一化时，上式才化为 $\lvert \alpha\rvert^2+\lvert \beta\rvert^2$。
 
-进一步，$|\psi\rangle$ 与 $e^{i\theta}|\psi\rangle$ 给出相同的所有概率预测。因此，严格说来，一个**物理纯态**对应一条一维复子空间（射线），即
+进一步，$\lvert \psi\rangle$ 与 $e^{i\theta}\lvert \psi\rangle$ 给出相同的所有概率预测。因此，严格说来，一个**物理纯态**对应一条一维复子空间（射线），即
 
 $$
-[\psi]=\{c|\psi\rangle:c\in\mathbb C,\ c\ne0\},
+[\psi]=\{c\lvert \psi\rangle:c\in\mathbb C,\ c\ne0\},
 $$
 
 或者等价地，对应秩一正交投影
 
 $$
-\rho_\psi=|\psi\rangle\langle\psi|,
-\qquad \langle\psi|\psi\rangle=1.
+\rho_\psi=\lvert \psi\rangle\langle \psi\rvert,
+\qquad \langle\psi\mid \psi\rangle=1.
 $$
 
 对于有限维 $\mathcal H\cong\mathbb C^d$，归一化纯态的空间在除去整体相位后是复射影空间 $\mathbb{CP}^{d-1}$。这是现代的几何语言，并非声称狄拉克在 1930 年使用了这一术语。
 
 ### 2.2 以内积表示概率幅
 
-若 $\{|e_j\rangle\}_{j=1}^d$ 是一组标准正交基，完备性给出
+若 $\{\lvert e_j\rangle\}_{j=1}^d$ 是一组标准正交基，完备性给出
 
 $$
-I=\sum_{j=1}^d|e_j\rangle\langle e_j|,
+I=\sum_{j=1}^d\lvert e_j\rangle\langle e_j\rvert,
 \qquad
-|\psi\rangle=\sum_{j=1}^d c_j|e_j\rangle,
+\lvert \psi\rangle=\sum_{j=1}^d c_j\lvert e_j\rangle,
 \qquad
-c_j=\langle e_j|\psi\rangle.
+c_j=\langle e_j\mid \psi\rangle.
 $$
 
 系数 $c_j$ 称为概率幅，而在该正交基对应的理想测量中，结果 $j$ 的概率是
 
 $$
-\Pr(j)=|c_j|^2,
+\Pr(j)=\lvert c_j\rvert^2,
 \qquad
-\sum_{j=1}^d|c_j|^2=1.
+\sum_{j=1}^d\lvert c_j\rvert^2=1.
 $$
 
-这里的复数 $c_j$ 携带相位信息。一般不能只保留概率 $|c_j|^2$，因为不同表象中的干涉现象依赖于相对相位。
+这里的复数 $c_j$ 携带相位信息。一般不能只保留概率 $\lvert c_j\rvert^2$，因为不同表象中的干涉现象依赖于相对相位。
 
 ## 三、从光子偏振出发：叠加为何不同于经典混合？
 
 狄拉克选择光子偏振作为第一章的物理起点。一个理想化的单光子线偏振自由度可用 $\mathcal H=\mathbb C^2$ 表示。取水平、竖直偏振态为正交基：
 
 $$
-|H\rangle=\begin{pmatrix}1\\0\end{pmatrix},
+\lvert H\rangle=\begin{pmatrix}1\\0\end{pmatrix},
 \qquad
-|V\rangle=\begin{pmatrix}0\\1\end{pmatrix}.
+\lvert V\rangle=\begin{pmatrix}0\\1\end{pmatrix}.
 $$
 
 与水平成 $45^\circ$ 的对角偏振态为
 
 $$
-|D\rangle=\frac{|H\rangle+|V\rangle}{\sqrt2},
+\lvert D\rangle=\frac{\lvert H\rangle+\lvert V\rangle}{\sqrt2},
 \qquad
-|A\rangle=\frac{|H\rangle-|V\rangle}{\sqrt2}.
+\lvert A\rangle=\frac{\lvert H\rangle-\lvert V\rangle}{\sqrt2}.
 $$
 
-两态满足 $\langle D|A\rangle=0$。如果对 $|D\rangle$ 进行水平／竖直偏振测量，则
+两态满足 $\langle D\mid A\rangle=0$。如果对 $\lvert D\rangle$ 进行水平／竖直偏振测量，则
 
 $$
-\Pr(H|D)=|\langle H|D\rangle|^2=\frac12,
+\Pr(H\mid D)=\lvert \langle H\mid D\rangle\rvert^2=\frac12,
 \qquad
-\Pr(V|D)=\frac12.
+\Pr(V\mid D)=\frac12.
 $$
 
 但是，**纯态叠加不等于统计混合**。这一点可在密度算符层面精确验证。对角偏振纯态对应
 
 $$
-\rho_D=|D\rangle\langle D|
+\rho_D=\lvert D\rangle\langle D\rvert
 =\frac12\begin{pmatrix}1&1\\1&1\end{pmatrix};
 $$
 
@@ -142,31 +142,31 @@ $$
 
 $$
 \rho_{\mathrm{mix}}
-=\frac12|H\rangle\langle H|
-+\frac12|V\rangle\langle V|
+=\frac12\lvert H\rangle\langle H\rvert
++\frac12\lvert V\rangle\langle V\rvert
 =\frac12\begin{pmatrix}1&0\\0&1\end{pmatrix}.
 $$
 
 虽然在 $H/V$ 基下，两者的测量分布相同，但使用 $D/A$ 基测量时，
 
 $$
-\operatorname{Tr}(\rho_D|D\rangle\langle D|)=1,
+\operatorname{Tr}(\rho_D\lvert D\rangle\langle D\rvert)=1,
 \qquad
-\operatorname{Tr}(\rho_{\mathrm{mix}}|D\rangle\langle D|)=\frac12.
+\operatorname{Tr}(\rho_{\mathrm{mix}}\lvert D\rangle\langle D\rvert)=\frac12.
 $$
 
 差别来自 $\rho_D$ 的非对角元；它们记录了 $H$ 与 $V$ 两个振幅之间的相干性。
 
-一个直观的推论是三偏振片实验。设入射光已处于 $|V\rangle$，依次经过竖直、$45^\circ$、水平三片理想偏振片。相对于初始入射强度，依次透射的概率相乘得到
+一个直观的推论是三偏振片实验。设入射光已处于 $\lvert V\rangle$，依次经过竖直、$45^\circ$、水平三片理想偏振片。相对于初始入射强度，依次透射的概率相乘得到
 
 $$
 \Pr(\text{最终透射})
-=1\times|\langle D|V\rangle|^2
-\times|\langle H|D\rangle|^2
+=1\times\lvert \langle D\mid V\rangle\rvert^2
+\times\lvert \langle H\mid D\rangle\rvert^2
 =\frac14.
 $$
 
-如果只保留首尾相互正交的两片，透射概率则是 $|\langle H|V\rangle|^2=0$。中间偏振片的加入改变了后续状态与最终测量概率。
+如果只保留首尾相互正交的两片，透射概率则是 $\lvert \langle H\mid V\rangle\rvert^2=0$。中间偏振片的加入改变了后续状态与最终测量概率。
 
 ## 四、可观测量、谱分解和测量：究竟测到了什么？
 
@@ -184,11 +184,11 @@ $$
 
 $P_a$ 的秩可以大于 $1$，因此这里不假定非简并谱。
 
-测量处于归一化纯态 $|\psi\rangle$ 的系统时，取得本征值 $a$ 的概率为
+测量处于归一化纯态 $\lvert \psi\rangle$ 的系统时，取得本征值 $a$ 的概率为
 
 $$
-\boxed{\Pr(A=a)=\langle\psi|P_a|\psi\rangle
-=\|P_a|\psi\rangle\|^2.}
+\boxed{\Pr(A=a)=\langle\psi\mid P_a\mid \psi\rangle
+=\lVert P_a\lvert \psi\rangle\rVert^2.}
 $$
 
 若是一般密度算符 $\rho\ge0$、$\operatorname{Tr}\rho=1$，同一个规则写成
@@ -226,8 +226,8 @@ $$
 对称性（Hermitian/symmetric）要求
 
 $$
-\langle\phi|A\psi\rangle
-=\langle A\phi|\psi\rangle,
+\langle\phi\mid A\psi\rangle
+=\langle A\phi\mid \psi\rangle,
 \qquad \phi,\psi\in D(A).
 $$
 
@@ -242,13 +242,13 @@ $$
 这一积分按谱定理的意义理解，等式作用于 $A$ 的定义域。测量值落在可测集合 $\Delta\subset\mathbb R$ 中的概率是
 
 $$
-\boxed{\Pr(A\in\Delta)=\langle\psi|P_A(\Delta)|\psi\rangle.}
+\boxed{\Pr(A\in\Delta)=\langle\psi\mid P_A(\Delta)\mid \psi\rangle.}
 $$
 
 对于连续位置测量，单个点通常具有零概率，而区间概率才是有意义的量。若 $\psi(x)$ 是归一化位置波函数，则
 
 $$
-\Pr(x\in[a,b])=\int_a^b|\psi(x)|^2\,dx.
+\Pr(x\in[a,b])=\int_a^b\lvert \psi(x)\rvert^2\,dx.
 $$
 
 有限维的 $\sum_a aP_a$ 是以上谱积分在离散有限谱时的特例。
@@ -257,10 +257,10 @@ $$
 
 ### 5.1 两组正交基之间的幺正变换
 
-设 $\mathcal H\cong\mathbb C^d$，有两组标准正交基 $\{|e_j\rangle\}$ 与 $\{|f_\alpha\rangle\}$。定义变换矩阵
+设 $\mathcal H\cong\mathbb C^d$，有两组标准正交基 $\{\lvert e_j\rangle\}$ 与 $\{\lvert f_\alpha\rangle\}$。定义变换矩阵
 
 $$
-U_{j\alpha}=\langle e_j|f_\alpha\rangle.
+U_{j\alpha}=\langle e_j\mid f_\alpha\rangle.
 $$
 
 利用两组基的完备性，可以逐项计算
@@ -268,9 +268,9 @@ $$
 $$
 \begin{aligned}
 (U^\dagger U)_{\alpha\beta}
-&=\sum_j\langle f_\alpha|e_j\rangle
-\langle e_j|f_\beta\rangle\\
-&=\langle f_\alpha|f_\beta\rangle
+&=\sum_j\langle f_\alpha\mid e_j\rangle
+\langle e_j\mid f_\beta\rangle\\
+&=\langle f_\alpha\mid f_\beta\rangle
 =\delta_{\alpha\beta}.
 \end{aligned}
 $$
@@ -280,9 +280,9 @@ $$
 同一抽象态在两组基下的坐标分别记作 $c^{(e)}$、$c^{(f)}$，则
 
 $$
-c^{(e)}_j=\langle e_j|\psi\rangle,
+c^{(e)}_j=\langle e_j\mid \psi\rangle,
 \qquad
-c^{(f)}_\alpha=\langle f_\alpha|\psi\rangle,
+c^{(f)}_\alpha=\langle f_\alpha\mid \psi\rangle,
 \qquad
 \boxed{c^{(f)}=U^\dagger c^{(e)}.}
 $$
@@ -290,10 +290,10 @@ $$
 同一个可观测量 $A$ 的两种矩阵表示为
 
 $$
-A^{(e)}_{jk}=\langle e_j|A|e_k\rangle,
+A^{(e)}_{jk}=\langle e_j\mid A\mid e_k\rangle,
 \qquad
 A^{(f)}_{\alpha\beta}
-=\langle f_\alpha|A|f_\beta\rangle.
+=\langle f_\alpha\mid A\mid f_\beta\rangle.
 $$
 
 在两次插入恒等算符之后，得到
@@ -309,31 +309,31 @@ $$
 =(c^{(e)})^\dagger A^{(e)}c^{(e)}.
 $$
 
-注意这里的 $U$ 是**被动换基**矩阵。若真的对物理态施加一个主动幺正操作 $V$，则态变为 $V|\psi\rangle$；如同时对可观测量作 $A\mapsto VAV^\dagger$，同样保持期望值不变。两种操作不能在符号上混淆。
+注意这里的 $U$ 是**被动换基**矩阵。若真的对物理态施加一个主动幺正操作 $V$，则态变为 $V\lvert \psi\rangle$；如同时对可观测量作 $A\mapsto VAV^\dagger$，同样保持期望值不变。两种操作不能在符号上混淆。
 
 ### 5.2 用能量本征态连接两种形式
 
-设 $H$ 在所考虑的离散谱子空间中有标准正交本征基 $\{|n\rangle\}$，满足
+设 $H$ 在所考虑的离散谱子空间中有标准正交本征基 $\{\lvert n\rangle\}$，满足
 
 $$
-H|n\rangle=E_n|n\rangle,
-\qquad \langle m|n\rangle=\delta_{mn}.
+H\lvert n\rangle=E_n\lvert n\rangle,
+\qquad \langle m\mid n\rangle=\delta_{mn}.
 $$
 
 在此能量表象中，
 
 $$
-H_{mn}=\langle m|H|n\rangle=E_n\delta_{mn}.
+H_{mn}=\langle m\mid H\mid n\rangle=E_n\delta_{mn}.
 $$
 
 任意态及算符的展开式为
 
 $$
-|\psi\rangle=\sum_n c_n|n\rangle,
+\lvert \psi\rangle=\sum_n c_n\lvert n\rangle,
 \qquad
-c_n=\langle n|\psi\rangle,
+c_n=\langle n\mid \psi\rangle,
 \qquad
-A_{mn}=\langle m|A|n\rangle.
+A_{mn}=\langle m\mid A\mid n\rangle.
 $$
 
 若哈密顿量与时间无关，则
@@ -366,20 +366,20 @@ $$
 $$
 \mathcal H=L^2(\mathbb R,dx),
 \qquad
-\int_{\mathbb R}|\psi(x)|^2\,dx=1.
+\int_{\mathbb R}\lvert \psi(x)\rvert^2\,dx=1.
 $$
 
 在现代 Dirac 记号中，形式上写作
 
 $$
-\psi(x)=\langle x|\psi\rangle,
+\psi(x)=\langle x\mid \psi\rangle,
 \qquad
-\langle x|x'\rangle=\delta(x-x'),
+\langle x\mid x'\rangle=\delta(x-x'),
 \qquad
-I=\int_{\mathbb R}|x\rangle\langle x|\,dx.
+I=\int_{\mathbb R}\lvert x\rangle\langle x\rvert\,dx.
 $$
 
-**严格性说明：** $|x\rangle$ 不是 $L^2(\mathbb R)$ 中的可归一化向量，$\delta(x-x')$ 是分布。上述三个式子可以作为广义本征矢的简写；其严谨意义由位置算符的谱测度给出，也可在 Schwartz 空间的 Gelfand 三重态
+**严格性说明：** $\lvert x\rangle$ 不是 $L^2(\mathbb R)$ 中的可归一化向量，$\delta(x-x')$ 是分布。上述三个式子可以作为广义本征矢的简写；其严谨意义由位置算符的谱测度给出，也可在 Schwartz 空间的 Gelfand 三重态
 
 $$
 \mathcal S(\mathbb R)\subset L^2(\mathbb R)
@@ -405,8 +405,8 @@ $$
 而言，只要 $V$ 的条件与所选定义域保证 $H$ 存在恰当的自伴实现，抽象薛定谔方程
 
 $$
-i\hbar\frac{d}{dt}|\psi(t)\rangle
-=H|\psi(t)\rangle
+i\hbar\frac{d}{dt}\lvert \psi(t)\rangle
+=H\lvert \psi(t)\rangle
 $$
 
 在位置表象中便成为
@@ -423,10 +423,10 @@ $$
 
 ### 6.2 动量波函数与傅里叶变换
 
-采用 $\langle x|p\rangle=(2\pi\hbar)^{-1/2}e^{ipx/\hbar}$ 的约定，有
+采用 $\langle x\mid p\rangle=(2\pi\hbar)^{-1/2}e^{ipx/\hbar}$ 的约定，有
 
 $$
-\widetilde\psi(p)=\langle p|\psi\rangle
+\widetilde\psi(p)=\langle p\mid \psi\rangle
 =\frac{1}{\sqrt{2\pi\hbar}}
 \int_{\mathbb R}e^{-ipx/\hbar}\psi(x)\,dx,
 $$
@@ -439,16 +439,16 @@ $$
 对于 Schwartz 函数，公式可按普通积分理解；对于任意 $L^2$ 波函数，则按 Plancherel 定理将傅里叶变换延拓为幺正算符。特别地，
 
 $$
-\int_{\mathbb R}|\psi(x)|^2dx
-=\int_{\mathbb R}|\widetilde\psi(p)|^2dp.
+\int_{\mathbb R}\lvert \psi(x)\rvert^2dx
+=\int_{\mathbb R}\lvert \widetilde\psi(p)\rvert^2dp.
 $$
 
 这里的正交归一和完备关系同样以分布或谱理论意义成立：
 
 $$
-\langle p|p'\rangle=\delta(p-p'),
+\langle p\mid p'\rangle=\delta(p-p'),
 \qquad
-I=\int_{\mathbb R}|p\rangle\langle p|\,dp.
+I=\int_{\mathbb R}\lvert p\rangle\langle p\rvert\,dp.
 $$
 
 所以**位置波函数和动量波函数是同一个态的两种表象**；它们的联系本质上也是变换理论。
@@ -495,7 +495,7 @@ $$
 
 ### 7.2 由柯西–施瓦茨不等式推导不确定性关系
 
-设 $A,B$ 为自伴算符，归一化态 $|\psi\rangle$ 属于使以下表达有意义的共同定义域。记
+设 $A,B$ 为自伴算符，归一化态 $\lvert \psi\rangle$ 属于使以下表达有意义的共同定义域。记
 
 $$
 \delta A=A-\langle A\rangle_\psi I,
@@ -503,20 +503,20 @@ $$
 \delta B=B-\langle B\rangle_\psi I,
 $$
 
-以及 $|u\rangle=\delta A|\psi\rangle$、$|v\rangle=\delta B|\psi\rangle$。柯西–施瓦茨不等式给出
+以及 $\lvert u\rangle=\delta A\lvert \psi\rangle$、$\lvert v\rangle=\delta B\lvert \psi\rangle$。柯西–施瓦茨不等式给出
 
 $$
 (\Delta_\psi A)^2(\Delta_\psi B)^2
-=\|u\|^2\|v\|^2
-\ge|\langle u|v\rangle|^2
-\ge|\operatorname{Im}\langle u|v\rangle|^2.
+=\lVert u\rVert^2\lVert v\rVert^2
+\ge\lvert \langle u\mid v\rangle\rvert^2
+\ge\lvert \operatorname{Im}\langle u\mid v\rangle\rvert^2.
 $$
 
 当 $AB$ 和 $BA$ 的期望值均定义良好时，
 
 $$
-2i\operatorname{Im}\langle u|v\rangle
-=\langle\psi|[A,B]|\psi\rangle.
+2i\operatorname{Im}\langle u\mid v\rangle
+=\langle\psi\mid [A,B]\mid \psi\rangle.
 $$
 
 因此得到 Robertson 不确定性关系
@@ -524,7 +524,7 @@ $$
 $$
 \boxed{
 \Delta_\psi A\,\Delta_\psi B
-\ge\frac12\left|\langle\psi|[A,B]|\psi\rangle\right|.
+\ge\frac12\left\lvert\langle\psi\mid [A,B]\mid \psi\rangle\right\rvert.
 }
 $$
 
@@ -560,14 +560,14 @@ $$
 在薛定谔绘景中，
 
 $$
-|\psi_S(t)\rangle=U(t)|\psi(0)\rangle,
+\lvert \psi_S(t)\rangle=U(t)\lvert \psi(0)\rangle,
 \qquad A_S=A
 $$
 
 （此处假设 $A$ 无显含时间依赖）。在海森堡绘景中，将态固定、把时间依赖移到算符：
 
 $$
-|\psi_H\rangle=|\psi(0)\rangle,
+\lvert \psi_H\rangle=\lvert \psi(0)\rangle,
 \qquad
 A_H(t)=U(t)^\dagger A_SU(t).
 $$
@@ -576,9 +576,9 @@ $$
 
 $$
 \begin{aligned}
-\langle\psi_S(t)|A_S|\psi_S(t)\rangle
-&=\langle\psi(0)|U(t)^\dagger A_SU(t)|\psi(0)\rangle\\
-&=\langle\psi_H|A_H(t)|\psi_H\rangle.
+\langle\psi_S(t)\mid A_S\mid \psi_S(t)\rangle
+&=\langle\psi(0)\mid U(t)^\dagger A_SU(t)\mid \psi(0)\rangle\\
+&=\langle\psi_H\mid A_H(t)\mid \psi_H\rangle.
 \end{aligned}
 $$
 
@@ -599,9 +599,9 @@ $$
 狄拉克在书中还系统处理了相同粒子。现代语言中，$N$ 个具有单粒子空间 $\mathcal H$ 的系统先形成张量积空间 $\mathcal H^{\otimes N}$。对置换 $\pi\in S_N$，定义置换算符
 
 $$
-V_\pi\big(|\psi_1\rangle\otimes\cdots\otimes|\psi_N\rangle\big)
-=|\psi_{\pi^{-1}(1)}\rangle\otimes\cdots
-\otimes|\psi_{\pi^{-1}(N)}\rangle.
+V_\pi\big(\lvert \psi_1\rangle\otimes\cdots\otimes\lvert \psi_N\rangle\big)
+=\lvert \psi_{\pi^{-1}(1)}\rangle\otimes\cdots
+\otimes\lvert \psi_{\pi^{-1}(N)}\rangle.
 $$
 
 它们满足 $V_\pi V_\sigma=V_{\pi\sigma}$，并且是幺正算符。全对称与全反对称投影分别为
