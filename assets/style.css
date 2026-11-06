@@ -350,3 +350,15 @@ html[data-theme="paper"] .markdown-prose pre { background: #F7F3EC; }
   .feature-card { min-height: 220px; }
   .hero-copy h1 { font-size: 40px; }
 }
+
+
+/* 各历史事件的自定义封面图片 */
+.archive-art .event-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 620 / 355;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+}
+
