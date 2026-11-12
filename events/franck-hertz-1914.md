@@ -105,7 +105,7 @@ $$
 改变加速电压 $U_a$ 与阻挡电压 $U_r$，观察装置中的电子运动、能量损失和收集电流。图中的电流曲线采用简化阈值模型，目的在于解释**为什么离散激发能会转化为电流的重复峰谷**，不能代替真实汞蒸气管的定量输运计算。
 
 <div style="margin:1rem 0 1.4rem;">
-  <iframe src="{{ '/assets/labs/franck-hertz-1914.html' | relative_url }}" title="弗兰克–赫兹实验交互演示" loading="lazy" style="display:block;width:100%;height:760px;border:1px solid #d8e1e8;border-radius:12px;background:#f7f9fc;" allow="fullscreen"></iframe>
+  <iframe src="{{ '/assets/images/franck-hertz-1914.html' | relative_url }}" title="弗兰克–赫兹实验交互演示" loading="lazy" style="display:block;width:100%;height:760px;border:1px solid #d8e1e8;border-radius:12px;background:#f7f9fc;" allow="fullscreen"></iframe>
   <p style="margin:.55rem 0;font-size:.9em;">若页面中的演示无法显示，可<a href="{{ '/assets/labs/franck-hertz-1914.html' | relative_url }}" target="_blank" rel="noopener noreferrer">在新窗口打开交互实验</a>。</p>
 </div>
 
