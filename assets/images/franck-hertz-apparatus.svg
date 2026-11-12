@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="500" viewBox="0 0 1100 500" role="img" aria-labelledby="t d">
+<title id="t">弗兰克–赫兹实验装置的教学原理图</title>
+<desc id="d">热阴极、可调加速电压、汞蒸气、加速栅网、阻挡区与收集极的空间关系示意图。</desc>
+<defs><linearGradient id="tube" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f3f8fd"/><stop offset="1" stop-color="#e7f1f8"/></linearGradient><linearGradient id="wire" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#dc8373"/><stop offset="1" stop-color="#f1c9a0"/></linearGradient><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3476a4"/></marker><marker id="barrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#ba7c54"/></marker></defs>
+<rect width="1100" height="500" rx="19" fill="#f9fbfd"/>
+<text x="48" y="47" fill="#2c4860" font-size="23" font-weight="650" font-family="sans-serif">弗兰克–赫兹实验｜装置原理</text>
+<text x="48" y="75" fill="#70869b" font-size="14" font-family="sans-serif">通过可调电压给电子加速，测量穿过汞蒸气后的收集电流</text>
+<rect x="56" y="114" width="985" height="264" rx="98" fill="url(#tube)" stroke="#b7cedd" stroke-width="2.5"/>
+<g opacity="0.82"><circle cx="290" cy="181" r="13" fill="#b5c3e8"/><circle cx="397" cy="297" r="12" fill="#b5c3e8"/><circle cx="500" cy="169" r="13" fill="#b5c3e8"/><circle cx="616" cy="279" r="12" fill="#b5c3e8"/><circle cx="725" cy="188" r="13" fill="#b5c3e8"/><circle cx="351" cy="242" r="10" fill="#b5c3e8"/><circle cx="585" cy="218" r="10" fill="#b5c3e8"/><circle cx="679" cy="335" r="10" fill="#b5c3e8"/></g>
+<rect x="155" y="157" width="12" height="176" rx="3" fill="#b86e5d"/><rect x="157" y="170" width="8" height="150" fill="url(#wire)"/>
+<g fill="none" stroke="#dc9378" stroke-width="3"><path d="M133 184Q146 197 133 212Q120 228 133 241Q146 255 133 269Q120 283 133 302"/></g>
+<rect x="800" y="142" width="7" height="207" rx="2" fill="#3b7f99"/>
+<g stroke="#83a9ba" stroke-width="1.1"><path d="M800 159h7M800 174h7M800 189h7M800 204h7M800 219h7M800 234h7M800 249h7M800 264h7M800 279h7M800 294h7M800 309h7M800 324h7"/></g>
+<rect x="943" y="163" width="14" height="166" rx="4" fill="#566c83"/>
+<g stroke="#3476a4" fill="#3476a4"><circle cx="206" cy="246" r="6"/><circle cx="273" cy="246" r="6"/><circle cx="345" cy="246" r="6"/><circle cx="448" cy="246" r="6"/><circle cx="561" cy="246" r="6"/><circle cx="757" cy="246" r="6"/><path d="M215 246H262M280 246H335M359 246H438M463 246H551M576 246H744" stroke-width="2.5" marker-end="url(#arrow)"/></g>
+<path d="M591 240l16 12m-16 0l16-12" stroke="#a17cbb" stroke-width="2.5"/>
+<path d="M603 229Q630 201 655 229" fill="none" stroke="#b48fc6" stroke-width="2" stroke-dasharray="4 5"/>
+<g font-family="sans-serif" font-size="17" text-anchor="middle" fill="#344c62"><text x="160" y="411">热阴极 K</text><text x="462" y="411">汞蒸气 Hg</text><text x="802" y="411">加速栅网 G</text><text x="950" y="411">收集极 C</text></g>
+<g stroke="#94acbd" stroke-width="1.6"><path d="M162 335V390M462 344V390M802 350V390M950 328V390"/></g>
+<g font-family="sans-serif" font-size="17" fill="#344c62"><text x="317" y="152">电子加速运动</text><text x="847" y="150">阻挡区</text></g>
+<path d="M283 160H514" stroke="#3476a4" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M816 199H929" stroke="#ba7c54" stroke-width="2.5" marker-end="url(#barrow)"/>
+<g font-family="sans-serif" font-size="16" fill="#526c82"><text x="259" y="454">加速电压 Uₐ（K → G）</text><text x="801" y="454">阻挡电压 Uᵣ（G → C）</text></g>
+<path d="M166 435H785" stroke="#3476a4" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M810 435H937" stroke="#ba7c54" stroke-width="2" marker-end="url(#barrow)"/>
+<text x="48" y="484" font-size="12.8" font-family="sans-serif" fill="#72899a">结构仅表示测量原理，非原始实验器材的比例复原。紫色点为汞原子，蓝色点为电子。</text>
+</svg>
