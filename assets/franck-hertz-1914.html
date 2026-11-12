@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>弗兰克–赫兹实验｜交互演示</title>
+<style>
+:root{color-scheme:light;--ink:#2b485d;--muted:#637c90;--line:#dce6ef;--blue:#377ba3;--blue-soft:#e9f2f8;--warm:#bb8054;--paper:#fff;--bg:#f7f9fc}
+*{box-sizing:border-box}html,body{margin:0}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg);padding:15px;font-size:14px}
+.lab{max-width:900px;margin:0 auto}.lead{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap}
+h1{font-size:20px;line-height:1.35;margin:0 0 3px;font-weight:680;letter-spacing:.02em}.sub{font-size:12px;color:var(--muted);margin:0}
+.pill{padding:6px 10px;border:1px solid var(--line);background:#fff;border-radius:30px;font-size:12px;color:var(--muted)}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 11px}.metric{background:var(--paper);border:1px solid var(--line);padding:9px 12px;border-radius:10px}.metric .label{font-size:12px;color:var(--muted)}.metric .value{display:block;font-size:21px;font-weight:650;margin-top:1px;font-variant-numeric:tabular-nums}.metric small{font-size:11px;color:var(--muted);font-weight:400}
+.controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:18px;background:var(--paper);border:1px solid var(--line);padding:13px 16px;border-radius:11px;align-items:center;margin-bottom:11px}.control-label{display:flex;align-items:center;justify-content:space-between;font-weight:550;margin-bottom:7px}.control-label output{color:var(--blue);font-variant-numeric:tabular-nums;font-weight:680}input[type=range]{width:100%;accent-color:var(--blue);margin:0;cursor:pointer}.range{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);padding-top:3px}.actions{display:flex;gap:7px;flex-wrap:wrap;align-items:center}button{font:inherit;border-radius:8px;border:1px solid #cbdde8;background:#eff5fa;color:#315a77;padding:9px 12px;cursor:pointer;font-size:12px;font-weight:600}button:hover{background:#dfedf7}button:focus-visible,input:focus-visible{outline:2px solid #2c80c0;outline-offset:3px}.primary{background:#397ba2;color:white;border-color:#397ba2}.primary:hover{background:#306b8e}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:10px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:11px 13px;min-width:0}.panel h2{font-size:14px;margin:0 0 4px;font-weight:650}.panel p{margin:0 0 5px;font-size:11px;color:var(--muted)}.diagram,.chart{width:100%;height:auto;display:block}.statustext{font-size:12px;line-height:1.55;border-top:1px solid #edf2f6;padding-top:8px;margin-top:2px;min-height:45px}.statustext strong{color:#99623c}.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:5px;font-size:11px;color:var(--muted)}.dot{display:inline-block;height:8px;width:8px;border-radius:50%;margin-right:4px;background:#387ba2}.dot.purple{background:#b29ecb}.dot.warm{background:#ba7d58}
+.foot{font-size:11px;line-height:1.65;color:var(--muted);margin:9px 2px 0}.tip{font-size:12px;line-height:1.55;color:#546f84;margin:0 1px 10px}
+@media(max-width:650px){body{padding:9px}.controls{grid-template-columns:1fr 1fr}.actions{grid-column:1/-1}.panels{grid-template-columns:1fr}.metrics{gap:5px}.metric{padding:8px}.metric .value{font-size:18px}.lab{max-width:580px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="lab">
+ <header class="lead">
+  <div><h1>当电子碰到汞原子</h1><p class="sub">弗兰克–赫兹实验 · 可调参数的概念模拟</p></div>
+  <span class="pill">特征激发能 ΔE ≈ 4.9 eV</span>
+ </header>
+ <section class="metrics" aria-label="当前实验读数">
+  <div class="metric"><span class="label">加速电压</span><span class="value" id="vRead">8.0 <small>V</small></span></div>
+  <div class="metric"><span class="label">相对收集电流</span><span class="value" id="iRead">—</span></div>
+  <div class="metric"><span class="label">可激发次数（上限）</span><span class="value" id="nRead">1 <small>次</small></span></div>
+ </section>
+ <div class="controls">
+  <div><label class="control-label" for="acc">加速电压 Uₐ <output id="accOut">8.0 V</output></label><input id="acc" type="range" min="0" max="30" step="0.1" value="8" aria-label="加速电压"><div class="range"><span>0 V</span><span>30 V</span></div></div>
+  <div><label class="control-label" for="ret">阻挡电压 Uᵣ <output id="retOut">1.5 V</output></label><input id="ret" type="range" min="0.5" max="4" step="0.1" value="1.5" aria-label="阻挡电压"><div class="range"><span>0.5 V</span><span>4.0 V</span></div></div>
+  <div class="actions"><button class="primary" id="scan" type="button">自动扫描</button><button id="pause" type="button">暂停运动</button></div>
+ </div>
+ <p class="tip">拖动滑块查看每个加速电压下的电流；点击“自动扫描”沿曲线逐点演示。下面的蓝点为代表性电子，紫色圆点为汞原子。</p>
+ <div class="panels">
+  <section class="panel" aria-label="电子运动示意">
+   <h2>电子在装置中的运动</h2><p>电子碰撞后可能突然损失约 4.9 eV 动能</p>
+   <svg id="tube" class="diagram" viewBox="0 0 600 278" role="img" aria-label="阴极、汞蒸气、栅网、收集极与运动电子的动态图">
+    <defs><linearGradient id="vapor" x2="0" y2="1"><stop stop-color="#eef5fa"/><stop offset="1" stop-color="#e5f0f7"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="2.5"/></filter></defs>
+    <rect x="20" y="57" width="557" height="152" rx="68" fill="url(#vapor)" stroke="#c1d7e4" stroke-width="2"/>
+    <g fill="#afa6d0" opacity=".75"><circle cx="169" cy="97" r="9"/><circle cx="250" cy="169" r="9"/><circle cx="330" cy="96" r="9"/><circle cx="415" cy="167" r="9"/><circle cx="501" cy="105" r="8"/><circle cx="385" cy="122" r="7"/></g>
+    <rect x="91" y="81" width="10" height="103" fill="#c47e66" rx="3"/><rect x="442" y="71" width="7" height="127" fill="#4b8ca9"/><rect x="531" y="83" width="10" height="103" fill="#5e768b" rx="2"/>
+    <path d="M113 137H424" stroke="#6e9fc0" stroke-width="1.6" stroke-dasharray="4 7"/>
+    <circle id="halo" cx="113" cy="137" r="20" fill="none" stroke="#ca8a67" stroke-width="3" opacity="0"/>
+    <circle id="particle" cx="113" cy="137" r="7" fill="#2e7da7" stroke="white" stroke-width="2"/>
+    <text x="95" y="35" text-anchor="middle" font-size="16" fill="#3d576d">阴极 K</text><text x="442" y="35" text-anchor="middle" font-size="16" fill="#3d576d">栅网 G</text><text x="539" y="35" text-anchor="middle" font-size="16" fill="#3d576d">收集极 C</text>
+    <text x="270" y="237" text-anchor="middle" font-size="15" fill="#5c7790">汞蒸气</text><text x="272" y="260" text-anchor="middle" font-size="13" fill="#6e879a">从左向右加速 →</text>
+    <path d="M99 213V224M445 198V224M539 188V224" stroke="#98afc0"/><path d="M99 220H439" stroke="#427f9d" stroke-width="2"/><path d="M453 220H535" stroke="#bd8d6c" stroke-width="2"/>
+   </svg>
+   <div id="status" class="statustext" aria-live="off">正在计算电子的运动状态。</div>
+   <div class="legend"><span><i class="dot"></i>电子</span><span><i class="dot purple"></i>汞原子</span><span><i class="dot warm"></i>非弹性碰撞</span></div>
+  </section>
+  <section class="panel" aria-label="电流电压曲线">
+   <h2>电流—电压曲线</h2><p>横轴：加速电压（V）；纵轴：归一化收集电流</p>
+   <svg id="curve" class="chart" viewBox="0 0 600 278" role="img" aria-label="相对收集电流随加速电压的动态曲线">
+    <g id="grid"></g><polyline id="curveLine" points="" fill="none" stroke="#377ba3" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <line id="cursor" x1="0" y1="28" x2="0" y2="237" stroke="#bd8b5f" stroke-width="2" stroke-dasharray="5 5"/>
+    <circle id="cursorDot" r="6" cx="0" cy="0" stroke="white" stroke-width="2" fill="#bd8b5f"/>
+    <text x="300" y="275" text-anchor="middle" font-size="13" fill="#6d8394">加速电压 Uₐ（V）</text>
+   </svg>
+   <div class="statustext">相邻峰谷的重复特征来自电子每次约 <strong>4.9 eV</strong> 的碰撞激发损失。曲线是概念模型，并非实验采集数据。</div>
+  </section>
+ </div>
+ <p class="foot">模型说明：此演示将电子达到阈值后的能量损失理想化为每次 4.9 eV，并对电子初始能量做简化展宽。真实碰撞为随机过程，碰撞截面、蒸气压、接触电势、空间电场及装置几何会改变曲线。动画所画轨迹是代表性情形，不等于每个电子都按图中路径碰撞。</p>
+</main>
+<script>
+(function(){
+ 'use strict';
+ const energyGap=4.9;
+ const acc=document.getElementById('acc'),ret=document.getElementById('ret');
+ const accOut=document.getElementById('accOut'),retOut=document.getElementById('retOut');
+ const vRead=document.getElementById('vRead'),iRead=document.getElementById('iRead'),nRead=document.getElementById('nRead');
+ const particle=document.getElementById('particle'),halo=document.getElementById('halo');
+ const cursor=document.getElementById('cursor'),cursorDot=document.getElementById('cursorDot');
+ const line=document.getElementById('curveLine'),grid=document.getElementById('grid');
+ const status=document.getElementById('status'),scanButton=document.getElementById('scan'),pauseButton=document.getElementById('pause');
+ const ns='http://www.w3.org/2000/svg';
+ const view={l:43,r:587,t:25,b:235};
+ let progress=0, lastFrame=0, sweeping=false, moving=!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+ const clamp=(a,lo,hi)=>Math.min(hi,Math.max(lo,a));
+ const sigmoid=x=>1/(1+Math.exp(-clamp(x,-40,40)));
+ // A deliberately idealized threshold-loss model with broadened electron energies.
+ function current(v,u){
+  let sum=0,norm=0;
+  for(let j=-16;j<=16;j++){
+   const offset=j*.085;
+   const w=Math.exp(-.5*Math.pow(offset/.35,2));
+   const en=Math.max(0,v+offset);
+   const n=Math.floor(en/energyGap);
+   const rem=en-n*energyGap;
+   const transmitted=sigmoid((rem-u)/.37);
+   sum+=w*transmitted;norm+=w;
+  }
+  return .88*(1-Math.exp(-Math.max(0,v)/2.2))*(sum/norm);
+ }
+ function x(v){return view.l+(view.r-view.l)*v/30;}
+ function y(i){return view.b-(view.b-view.t)*i;}
+ function addSvg(tag,attrs,text){let el=document.createElementNS(ns,tag);Object.keys(attrs).forEach(k=>el.setAttribute(k,String(attrs[k])));if(text!==undefined)el.textContent=text;grid.appendChild(el);return el;}
+ for(let v=0;v<=30;v+=5){let px=x(v);addSvg('line',{x1:px,x2:px,y1:view.t,y2:view.b,stroke:'#e4ecf2'});addSvg('text',{x:px,y:257,'text-anchor':'middle','font-size':12,fill:'#637d91'},String(v));}
+ for(let n=0;n<=4;n++){let yy=y(n*.25);addSvg('line',{x1:view.l,x2:view.r,y1:yy,y2:yy,stroke:'#e4ecf2'});}
+ addSvg('path',{d:`M${view.l} ${view.t}V${view.b}H${view.r}`,fill:'none',stroke:'#92a8b7','stroke-width':1.6});
+ function plot(){
+  const ua=Number(acc.value),ur=Number(ret.value),val=current(ua,ur);
+  const points=[];
+  for(let n=0;n<=300;n++){let v=n/10;points.push(x(v).toFixed(1)+','+y(current(v,ur)).toFixed(1));}
+  line.setAttribute('points',points.join(' '));
+  cursor.setAttribute('x1',x(ua));cursor.setAttribute('x2',x(ua));
+  cursorDot.setAttribute('cx',x(ua));cursorDot.setAttribute('cy',y(val));
+  accOut.textContent=ua.toFixed(1)+' V';retOut.textContent=ur.toFixed(1)+' V';
+  vRead.innerHTML=ua.toFixed(1)+' <small>V</small>';
+  iRead.textContent=val.toFixed(3);nRead.innerHTML=Math.floor(ua/energyGap)+' <small>次</small>';
+  depict();
+ }
+ function depict(){
+  const ua=Number(acc.value),ur=Number(ret.value);
+  const atGrid=ua-energyGap*Math.floor(ua/energyGap);
+  let pos,travel;
+  if(progress<.82){travel=progress/.82;pos=111+334*travel;}
+  else {travel=1;const t=(progress-.82)/.18;pos=atGrid>ur ?445+91*t:445+44*Math.sin(Math.PI*t);}
+  particle.setAttribute('cx',pos.toFixed(1));
+  let collisions=Math.floor((ua*travel+1e-9)/energyGap);
+  const energy=Math.max(0,ua*travel-collisions*energyGap);
+  // Visualize excitation near the location where the ideal electron crosses the threshold.
+  let near=false;
+  if(ua>energyGap&&progress<.82){for(let k=1;k<=Math.floor(ua/energyGap);k++){let loc=k*energyGap/ua;if(Math.abs(travel-loc)<.037){near=true;break;}}}
+  halo.setAttribute('cx',pos.toFixed(1));halo.setAttribute('opacity',near ?'.80':'0');
+  if(progress<.82){
+   status.innerHTML='此时电子已发生 <strong>'+collisions+'</strong> 次理想化激发碰撞；当前位置动能约 <strong>'+energy.toFixed(1)+' eV</strong>。';
+  }else{
+   status.innerHTML='栅网前余能约 <strong>'+atGrid.toFixed(1)+' eV</strong>，阻挡能量为 '+ur.toFixed(1)+' eV；'+(atGrid>ur?'<strong>代表性电子可以到达收集极。</strong>':'<strong>代表性电子被阻挡，无法到达收集极。</strong>');
+  }
+ }
+ function setScan(value){sweeping=value;scanButton.textContent=value?'停止扫描':'自动扫描';if(value&&!moving){moving=true;pauseButton.textContent='暂停运动';}}
+ acc.addEventListener('input',()=>{setScan(false);plot();});ret.addEventListener('input',plot);
+ scanButton.addEventListener('click',()=>setScan(!sweeping));
+ pauseButton.addEventListener('click',()=>{moving=!moving;pauseButton.textContent=moving?'暂停运动':'继续运动';depict();});
+ function tick(time){
+  if(!lastFrame)lastFrame=time;
+  const dt=Math.min(0.08,(time-lastFrame)/1000);lastFrame=time;
+  if(sweeping){let next=Number(acc.value)+dt*3.8;if(next>30)next=0;acc.value=next.toFixed(1);plot();}
+  if(moving){progress=(progress+dt*.31)%1;depict();}
+  window.requestAnimationFrame(tick);
+ }
+ plot();window.requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
