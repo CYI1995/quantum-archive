@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" role="img" aria-labelledby="title desc">
+<title id="title">黑体空腔与光谱测量示意图</title>
+<desc id="desc">从左到右：加热空腔中的多次反射、小孔发出的热辐射、准直组件、分光机构以及辐射探测器。</desc>
+<defs>
+  <radialGradient id="inner" cx="48%" cy="45%" r="57%"><stop stop-color="#faf4e9"/><stop offset=".5" stop-color="#f3e5d2"/><stop offset="1" stop-color="#e8c7a6"/></radialGradient>
+  <linearGradient id="ray" x1="0" x2="1"><stop stop-color="#d59e68"/><stop offset="1" stop-color="#668fab"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="6" flood-opacity=".08"/></filter>
+</defs>
+<rect width="1080" height="420" rx="22" fill="#f8fafc"/>
+<text x="40" y="49" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="600" fill="#314f63">从空腔辐射到光谱数据</text>
+<text x="40" y="77" font-family="Noto Sans CJK SC, sans-serif" font-size="15" fill="#7890a0">原理图 · 非历史仪器复原</text>
+<g filter="url(#shadow)">
+ <rect x="44" y="124" width="296" height="224" rx="30" fill="#e8d4bd" stroke="#bb946f" stroke-width="2"/>
+ <rect x="71" y="151" width="239" height="170" rx="69" fill="url(#inner)" stroke="#c7a27f" stroke-width="1.6"/>
+ <circle cx="310" cy="239" r="13" fill="#f8fafc" stroke="#b38762" stroke-width="3.5"/>
+ <path d="M115 242L255 192L153 291L236 254L183 183L105 207" fill="none" stroke="#c68d57" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M117 211L115 242L144 247" fill="none" stroke="#c68d57" stroke-width="2"/>
+</g>
+<text x="193" y="373" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#4f6c80">恒温加热空腔</text>
+<text x="309" y="117" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="14" fill="#826849">小孔</text>
+<path d="M325 236H450" stroke="url(#ray)" stroke-width="5" stroke-linecap="round"/>
+<path d="M438 228L456 236L438 244" fill="none" stroke="#c68d57" stroke-width="2"/>
+<g stroke="#557b92" stroke-width="4" fill="none"><path d="M457 178Q489 239 457 300"/><path d="M494 178Q462 239 494 300"/></g>
+<text x="476" y="373" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#4f6c80">准直光学</text>
+<path d="M500 239H616" stroke="#bb946f" stroke-width="4" stroke-linecap="round"/>
+<g filter="url(#shadow)"><path d="M642 170L712 241L633 310Z" fill="#f0f3f5" stroke="#66869a" stroke-width="3"/></g>
+<path d="M646 239L704 239" stroke="#cf935c" stroke-width="4"/>
+<path d="M704 238L813 183" stroke="#b97a60" stroke-width="3.5"/>
+<path d="M704 240L813 220" stroke="#a997c0" stroke-width="3.5"/>
+<path d="M704 242L813 253" stroke="#6b9caa" stroke-width="3.5"/>
+<text x="668" y="373" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#4f6c80">光谱选择</text>
+<g filter="url(#shadow)"><rect x="813" y="153" width="190" height="147" rx="16" fill="white" stroke="#cad9e3" stroke-width="2"/>
+ <path d="M832 263V175H977" stroke="#9ab0be" fill="none" stroke-width="2"/>
+ <path d="M832 263C847 257 850 216 867 213S900 245 916 234S937 185 950 196S967 230 976 219" fill="none" stroke="#4e819e" stroke-width="3" stroke-linecap="round"/>
+ </g>
+<text x="908" y="330" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#4f6c80">探测与记录</text>
+<text x="908" y="353" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="13" fill="#7890a0">扫描波长，记录辐射强度</text>
+<text x="194" y="104" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="14" fill="#9b704a">壁面多次反射并达到热平衡</text>
+</svg>
